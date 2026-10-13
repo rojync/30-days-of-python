@@ -9,14 +9,22 @@ print ("Day 1 of my 30 days challenge \n")
 # check input
 # use secrets
 
-length = int(input("Enter the length of the password: "))
 
-if length.type != int:
+quest = input("Enter the length of the password: ")
+
+if quest != string.digits: #doesnt recognise numbers
+    print("Invalid input")
+    length = int(input("Enter a valid length for the password: "))
+else:
+    length = int(quest)
+
+
+if type(length) != int:
     print("Password length must be a number between 8 and 25 ")
     length = int(input("Request a valid number for the password: "))
 
 if length >25 or length < 8:
-    print("Password length must be less than 25")
+    print("Password length must be between 8 and 25 ")
     length = int(input("Request a valid length for the password: "))
 
 password = ""
