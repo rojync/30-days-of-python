@@ -12,11 +12,11 @@ print ("Day 1 of my 30 days challenge \n")
 
 quest = input("Enter the length of the password: ")
 
-if quest != string.digits: #doesnt recognise numbers
+if quest.isdigit():
+    length = int(quest)
+else:
     print("Invalid input")
     length = int(input("Enter a valid length for the password: "))
-else:
-    length = int(quest)
 
 
 if type(length) != int:
@@ -30,8 +30,6 @@ if length >25 or length < 8:
 password = ""
 
 # length not too long check
-
-password = ""
 # for loop ads the randomly chosen sign to the string
 # throwing everything together and letting function random pick (wasn´t intentional idea)
 
