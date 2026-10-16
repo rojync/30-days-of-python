@@ -1,5 +1,5 @@
 import random #use random when needed random
-import string
+import sys
 #Guess the Number betweeen 0 and 500
 #Programm picks a number
 #you guess the number
@@ -14,7 +14,11 @@ def turning_guess_int(guess):
     while type(guess)!=int:
         if guess.isdigit():
             guess = int(guess)
-            return guess
+            if(guess >=0 and guess<=500):
+                return guess
+            else:
+                print("Invalid guess")
+                guess = input("Number not between 0 and 500:")
         else:
             print("Invalid guess")
             guess = input("Guess a number between 0 and 500:")
