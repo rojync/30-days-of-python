@@ -20,20 +20,39 @@ import string
 #Handle invalid inputs without crashing.
 #Accept uppercase and lowercase inputs.
 
-options = ['Rock', 'Paper', 'Scissor']
+options = ['Rock', 'Paper','Scissor']
 score = 0
+comp_score = 0
 choice = input("Rock, Paper, Scissor, SHOOT:")
 choice = choice.capitalize()
+
 #valid choice
-for pos in options:
-    if(choice != options):
+for x in options:
+    if(choice != x):
         print("Invalid input")
+        choice = input("Rock, Paper, Scissor, SHOOT:")
+    else:
+        break
 
 #letting computer choose
 
 comp_choice = random.choice(options)
 print(comp_choice)
 
-#comparison computer and player
+def output(score,comp_score):
+    print(score + ":" + comp_score)
 
-if (choice == 'Rock' and
+
+# all cases or is there a more efficient way?
+while score!= 3 or comp_score != 3:
+    if choice==comp_choice:
+        print("Draw! " + score + ":" + comp_score)
+    elif choice=='Rock' and comp_choice=='Paper':
+        comp_score = comp_score + 1
+        output(score, comp_score)
+    elif choice=='Paper' and comp_choice=='Rock':
+        score = score + 1
+        output(score, comp_score)
+    elif choice=='Rock' and
+
+#comparison computer and player
