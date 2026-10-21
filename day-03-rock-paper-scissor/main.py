@@ -27,32 +27,45 @@ choice = input("Rock, Paper, Scissor, SHOOT:")
 choice = choice.capitalize()
 
 #valid choice
-for x in options:
-    if(choice != x):
+for x in range(2):
+    y = options[x]
+    if(choice != y):
         print("Invalid input")
         choice = input("Rock, Paper, Scissor, SHOOT:")
+        choice = choice.capitalize()
     else:
         break
-
 #letting computer choose
 
 comp_choice = random.choice(options)
 print(comp_choice)
 
 def output(score,comp_score):
-    print(score + ":" + comp_score)
-
+    x = str(score) + ":" + str(comp_score)
+    return x
 
 # all cases or is there a more efficient way?
-while score!= 3 or comp_score != 3:
+while score<= 3 or comp_score <= 3:
     if choice==comp_choice:
-        print("Draw! " + score + ":" + comp_score)
+        print("Draw! " + str(score) + ":" + str(comp_score))
     elif choice=='Rock' and comp_choice=='Paper':
         comp_score = comp_score + 1
-        output(score, comp_score)
+        print(output(score, comp_score))
     elif choice=='Paper' and comp_choice=='Rock':
         score = score + 1
-        output(score, comp_score)
-    elif choice=='Rock' and
+        print(output(score, comp_score))
+    elif choice=='Rock' and comp_choice=='Scissor':
+        score = score + 1
+        print(output(score, comp_score))
+    elif choice=='Scissor' and comp_choice=='Rock':
+        comp_score = comp_score + 1
+        print(output(score, comp_score))
+    elif choice=='Paper' and comp_choice=='Scissor':
+        comp_choice = comp_choice + 1
+        print(output(score, comp_score))
+    else:
+        score = score + 1
+        print(output(score, comp_score))
+
 
 #comparison computer and player
