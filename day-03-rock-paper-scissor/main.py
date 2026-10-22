@@ -20,32 +20,39 @@ import string
 #Handle invalid inputs without crashing.
 #Accept uppercase and lowercase inputs.
 
+
 options = ['Rock', 'Paper','Scissor']
 score = 0
 comp_score = 0
-choice = input("Rock, Paper, Scissor, SHOOT:")
-choice = choice.capitalize()
 
-#valid choice
-for x in range(2):
-    y = options[x]
-    if(choice != y):
-        print("Invalid input")
-        choice = input("Rock, Paper, Scissor, SHOOT:")
-        choice = choice.capitalize()
-    else:
-        break
-#letting computer choose
-
-comp_choice = random.choice(options)
-print(comp_choice)
 
 def output(score,comp_score):
-    x = str(score) + ":" + str(comp_score)
-    return x
+    z = str(score) + ":" + str(comp_score)
+    return z
+
+while (1):
+    if(score>=3 or comp_score>=3):
+        print("Final score is: " + (output(score, comp_score)))
+        break
+
+    choice = input("Rock, Paper, Scissor, SHOOT:")
+    choice = choice.capitalize()
+
+    #valid choice
+    for x in range(2):
+        #need to go through all the options in a loop
+        if choice in options:
+            break
+        else:
+            print("Invalid input")
+            choice = input("Rock, Paper, Scissor, SHOOT:")
+            choice = choice.capitalize()
+    #letting computer choose
+
+    comp_choice = random.choice(options)
+    print(comp_choice)
 
 # all cases or is there a more efficient way?
-while score<= 3 or comp_score <= 3:
     if choice==comp_choice:
         print("Draw! " + str(score) + ":" + str(comp_score))
     elif choice=='Rock' and comp_choice=='Paper':
