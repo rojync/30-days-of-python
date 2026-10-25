@@ -55,24 +55,11 @@ while (1):
 # all cases or is there a more efficient way?
     if choice==comp_choice:
         print("Draw! " + str(score) + ":" + str(comp_score))
-    elif choice=='Rock' and comp_choice=='Paper':
+    elif (choice=='Rock' and comp_choice=='Paper') or (choice=='Scissor' and comp_choice=='Rock') or (choice=='Paper' and comp_choice=='Scissor'):
         comp_score = comp_score + 1
         print(output(score, comp_score))
-    elif choice=='Paper' and comp_choice=='Rock':
+    elif (choice=='Paper' and comp_choice=='Rock') or (choice=='Rock' and comp_choice=='Scissor') or (choice=='Scissor' and choice=='Paper'):
         score = score + 1
         print(output(score, comp_score))
-    elif choice=='Rock' and comp_choice=='Scissor':
-        score = score + 1
-        print(output(score, comp_score))
-    elif choice=='Scissor' and comp_choice=='Rock':
-        comp_score = comp_score + 1
-        print(output(score, comp_score))
-    elif choice=='Paper' and comp_choice=='Scissor':
-        comp_choice = comp_choice + 1
-        print(output(score, comp_score))
-    else:
-        score = score + 1
-        print(output(score, comp_score))
-
 
 #comparison computer and player
