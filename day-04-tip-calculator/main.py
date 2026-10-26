@@ -33,37 +33,40 @@ print("Welcome to the Tip Calculator")
 while(1):
     try:
         bill_amount = float(input("How much is the bill?"))
-        if (bill_amount < 0):
-            print("The amount is invalid")
-
-        break
+        if (bill_amount >= 0):
+            break
+        else:
+            print("Bill cant be negative!")
     except ValueError:
         print("Invalid input!")
+
+
 
 #if (tip_percentage != )
 #remove the percentage sign if there is one
 #float(string[1:]
 #float(string.replace("$", "")
-tip_percentage= input("How much percentage do you wanna tip?")
 while (1):
     try:
-        tip_percentage = float(tip_percentage.replace("$", ""))*0.01
-        if (tip_percentage < 0):
-            print("Invalid input")
+        tip_percentage = float(input("How much percentage do you wanna tip?"))
+        if (tip_percentage >= 0):
+            break
+        else:
+            print("Tip percentage can't be negative")
 
-        break
     except ValueError:
         print("Invalid input")
 
+tip_percentage = tip_percentage*0.01
 tip_amount = float(bill_amount*tip_percentage)
 
 while (1):
     try:
         number_people = int(input("How many people are paying the bill?"))
-        if (number_people < 1):
-            print("Invalid input")
-
-        break
+        if (number_people >= 1):
+            break
+        else:
+            print("Number of people can't be negative!")
     except ValueError:
         print("Invalid input")
 
@@ -73,5 +76,5 @@ total_bill = bill_amount+tip_amount
 #amount = str(total_bill) + "€" can also use this as the string
 bill_per_person = total_bill/number_people
 print(f"The total bill is: {total_bill}€")
-print(tip_amount)
-print(total_bill)
+print(f"The tip amount is: {tip_amount}€")
+print(f"Each person has to pay: {bill_per_person}€")
