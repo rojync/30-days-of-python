@@ -32,15 +32,31 @@ while(1):
 word_count=1
 character_count=0
 characters_without_spaces=0
-sentences_count=0
+sentences_count=1
 
 longest_word=""
 shortest_word=""
 
 for x in input_user:
     character_count += 1
+    characters_without_spaces += 1
     if x == " ":
         word_count +=1
 
+    if x == " ":
+        characters_without_spaces -= 1
+    if x == ".":
+        sentences_count += 1
+
+
+# counts space as words different approach
+for y in reversed(input_user):
+    if y != " ":
+        break
+    elif y==" ":
+        word_count -= 1
+
 print(f"The character count is {character_count}.")
 print(f"The word count is {word_count}.")
+print(f"The characters without space in between count is {characters_without_spaces}.")
+print(f"The sentence count is {sentences_count}.")
