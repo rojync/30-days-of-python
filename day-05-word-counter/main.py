@@ -1,16 +1,16 @@
 # DAY 5 - WORD COUNTER
 
 import string
-# Welcome the user to the Word Counter.
-# Ask the user to enter a sentence or text.
-# Count the total number of words.
-# Count the total number of characters.
-# Count the number of characters without spaces.
-# Count how many sentences the text contains.
+# Welcome the user to the Word Counter. //
+# Ask the user to enter a sentence or text. //
+# Count the total number of words. //
+# Count the total number of characters. //
+# Count the number of characters without spaces. //
+# Count how many sentences the text contains. //
 # Find the longest word in the text.
 # Find the shortest word in the text.
-# Display all results clearly.
-# Handle empty inputs without crashing.
+# Display all results clearly. //
+# Handle empty inputs without crashing. //
 # Ignore punctuation when comparing word lengths.
 
 # BONUS CHALLENGES
