@@ -30,23 +30,61 @@ while(1):
         break
 
 word_count=1
-character_count=0
 characters_without_spaces=0
 sentences_count=1
 
+length_input = len(input_user)
+y=0
+
 longest_word=""
+temp_longest_word = ""
+longest_words=[]
+
 shortest_word=""
+temp_shortest_word = ""
+shortest_words=[]
 
 for x in input_user:
-    character_count += 1
+    y+=1
     characters_without_spaces += 1
-    if x == " ":
-        word_count +=1
+    temp_longest_word = temp_longest_word + x
+    temp_shortest_word = temp_shortest_word + x
 
     if x == " ":
+        word_count +=1
         characters_without_spaces -= 1
+        temp_longest_word = temp_longest_word.replace(" ", "")
+        temp_shortest_word = temp_shortest_word.replace(" ", "")
+
+        if shortest_word == "":
+            shortest_word = temp_shortest_word
+
+        if len(temp_longest_word)>len(longest_word):
+            longest_word = temp_longest_word
+            temp_longest_word = ""
+        elif len(temp_longest_word) == len(longest_word):
+            longest_words.append(temp_longest_word)
+            longest_words.append(longest_word)
+            temp_longest_word=""
+        else:
+            temp_longest_word = ""
+
+        if len(temp_shortest_word)<len(shortest_word):
+            shortest_word = temp_shortest_word
+            temp_shortest_word = ""
+        elif len(temp_shortest_word) == len(shortest_word):
+            shortest_words.append(temp_shortest_word)
+            shortest_words.append(shortest_word)
+            temp_shortest_word = ""
+        else:
+            temp_shortest_word= ""
+
     if x == ".":
         sentences_count += 1
+        longest_word = longest_word.replace(".","")
+
+longest_word = temp_longest_word
+shortest_word = temp_shortest_word
 
 
 # counts space as words different approach
@@ -56,7 +94,19 @@ for y in reversed(input_user):
     elif y==" ":
         word_count -= 1
 
-print(f"The character count is {character_count}.")
+print(f"The character count is {length_input}.")
 print(f"The word count is {word_count}.")
 print(f"The characters without space in between count is {characters_without_spaces}.")
 print(f"The sentence count is {sentences_count}.")
+
+longest_words = list(set(longest_words))
+if longest_words!=[]:
+    print("The longest words are:", " ".join(longest_words), ".")
+else:
+    print(f"The longest word is: {longest_word}.")
+
+shortest_words = list(set(shortest_words))
+if shortest_words!=[]:
+    print("The shortest words are:", " ".join(shortest_words), ".")
+elif shortest_words == [] or len(shortest_words)==1:
+    print("The shortest word is:", " ".join(shortest_words), ".")
