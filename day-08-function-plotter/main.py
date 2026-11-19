@@ -46,13 +46,16 @@ while(1):
         else:
             print("Function can't be ploted! Choose one of the three options (x, x², x³)")
 
-    coordinates = [x, y]
-    table_values = []
-    table_values.append(coordinates)
-    table = ax.table(cellText=table_values, colLabels=["x", "f(x)"], loc="center")
+    coordinates = list(zip(x,y))
+    column_names = ['x','f(x)']
 
+    fig, (ax1,ax2) = plt.subplots(2,1,figsize=(6,6))   #creates a figure and axes
 
-    fig, ax = plt.subplots()
-    ax.plot(x, y)
+    ax1.plot(x, y)
+    ax2.axis("off")
+    table = ax2.table(cellText=coordinates, colLabels=column_names, loc="center")
+
     plt.show()
-
+    print(coordinates[0])
+    print(coordinates[0][0])
+    print(coordinates[0][1])
